@@ -34,6 +34,10 @@ export async function ensureAtheticated(
       throw new AppError("Invalid token", 401);
     }
 
+    request.user = {
+      id: user_id,
+    };
+
     next();
   } catch {
     throw new AppError("Invalid token", 401);
